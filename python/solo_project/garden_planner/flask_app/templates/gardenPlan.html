@@ -9,8 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="container flex space-between">
-            <h1> ______ by {{users.first_name}}!</h1>
+        <nav class="container flex justify-flex-end">
             <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
         </nav>
         <div> {% with messages = get_flashed_messages(category_filter=['____']) %}
@@ -26,6 +25,22 @@
     </header>
     <main>
 
+        <div class="file-input">
+            <input type="file" id="file" class="file">
+            <label for="file">Browse file</label>
+        </div>
+        <form action="#">
+            <input type="hidden" id="myFile" value="1234">
+          
+            File Selected: <input type="text">
+            <button class="btn-primary m-p" type="submit" value="Submit">Upload</button>
+
+        </form>
+        
+        
+        <div id="gradenLayout">
+
+        </div>
 
     </main>
     <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>

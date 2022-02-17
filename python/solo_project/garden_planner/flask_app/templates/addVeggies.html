@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav class="container flex space-between">
-            <h1> ______ by {{users.first_name}}!</h1>
+            <h1> This is the add Veggies page {{users.first_name}}!</h1>
             <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
         </nav>
         <div> {% with messages = get_flashed_messages(category_filter=['____']) %}

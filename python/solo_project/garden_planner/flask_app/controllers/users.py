@@ -55,7 +55,7 @@ def home():
     usersVegetables = User.userVegetables(data)
     return render_template("home.html", users=users, userVegetables=usersVegetables)
 
-@app.route("/garden-plan")
+@app.route("/gardenPlan")
 def gardenPlan():
     if 'user_id' not in session:
         print("Not in session authorized user only!!!")

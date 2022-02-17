@@ -64,7 +64,7 @@
 
 /* index.html main content */
 .index {
-    background-image: url("freshvegetables.jpeg");
+    background-image: url("/static/img/freshvegetables.jpeg");
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -209,6 +209,38 @@ label {
     margin: 0px;
 }
 
+
+/*  */
+#gradenLayout {
+    width: 500px;
+    height: 500px;
+    border: black solid 2px;
+}
+
+.file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+}
+
+.file-input label {
+    display: flex;
+    position: relative;
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 7px rgba(32, 189, 241, 0.409);
+    border: solid 1px rgba(136, 207, 136, 0.279);
+    background: linear-gradient(40deg, #02a667, #85f8d9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s ease-out;
+}
 
 
 /* THIS IS THE COVERFLOW SLIDER */

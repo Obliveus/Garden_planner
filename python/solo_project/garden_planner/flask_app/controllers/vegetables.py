@@ -6,7 +6,7 @@ from flask_app.models import vegetable
 
 bcrypt = Bcrypt(app)
 
-@app.route('/veggies')
+@app.route('/addVeggies')
 def addVeggies():
     if 'user_id' not in session:
         print("Not in session authorized user only!!!")
@@ -15,7 +15,7 @@ def addVeggies():
         "id": session['user_id']
     }
     users=user.User.get_one(data)
-    return render_template("edit.html", users=users)
+    return render_template("addVeggies.html", users=users)
 
 @app.route('/veggies')
 def allveggies():

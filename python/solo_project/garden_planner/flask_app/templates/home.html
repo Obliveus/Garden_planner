@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Home</title>
+    <link rel="stylesheet" href='../../HTWF/scripts/jquery.flipster.min.css'>
+<script src='../../HTWF/scripts/jquery.flipster.min.js'></script>
+</head>
+<body>
+    <header>
+        <nav class="container flex space-between">
+            <h1> Welcome {{users.first_name}}!</h1>
+            <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
+        </nav>
+    </header>
+    <main>
+        <div class="photo_slider">
+        
+
+
+
+        <h4>These are your Vegetables</h4>
+        <table class="table table-bordered table-hover table-striped border-secondary">
+            <tr class="container p-3 table-secondary text-dark">
+                <th scope="col">Vegetable</th>
+                <th scope="col">Planting Date</th>
+                <th scope="col">Harvest Date</th>
+                <th scope="col">Grid Zone</th>
+                <th scope="col">Actions</th>
+            </tr>
+            {% for vegetable in userVegetables.vegetablesList %}
+                <tr scope="row">
+                    <td>{{vegetable.vegetable}}</td>
+                    <td>{{vegetable.planting_date.strftime("%B %d, %Y")}}</td>
+                    <td>{{vegetable.harvest_date.strftime("%B %d, %Y")}}</td>
+                    <td>{{vegetable.zone}}</td>
+                    <td><a href="/edit/{{vegetable.id}}">Edit</a> | <a href="/delete/{{vegetable.id}}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="/">Add Vegetables</a>
+    </main>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+</body>
+</html>

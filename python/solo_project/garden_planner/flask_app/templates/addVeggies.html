@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Add Vegetable</title>
+</head>
+<body>
+    <header>
+        <nav class="container flex space-between">
+            <h1> ______ by {{users.first_name}}!</h1>
+            <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
+        </nav>
+        <div> {% with messages = get_flashed_messages(category_filter=['____']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                    </div>
+            {% endif %}    
+        {% endwith %} </div> 
+    </header>
+    <main>
+        <form action="/createVeggie" method="post" class="flex inline">
+            <div class="column">
+                <label for="vegetable"> Vegetable: </label>
+                <input type="text" name="vegetable">
+                <label for="zone">Grid zone: <label>
+                <input type="text" name="zone">
+                <label for="planting_date">planting_date: </label>
+                <input type="date" name="planting_date">
+                <button class="btn-primary btn-m-p">Add Vegetable</button> 
+                
+            </div>
+                <input type="hidden" name="users_id" value={{users.id}}>
+        </form>
+
+    </main>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+</body>
+</html>

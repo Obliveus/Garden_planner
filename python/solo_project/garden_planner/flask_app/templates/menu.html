@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% block menu %}
+    {% if request.endpoint == 'home'%}
+        <a href="/gardenPlan" class="btn-primary btn-m-p">Garden Plan</a>
+    {% elif request.endpoint == 'gardenPlan' %}
+        <a href="/home" class="btn-primary btn-m-p">Home</a>
+        <a href="/addVeggies" class="btn-primary btn-m-p">Add Vegetable</a>
+    {% else %}
+        <a href="/home" class="btn-primary btn-m-p">Home</a>
+        <a href="/gardenPlan" class="btn-primary btn-m-p">Garden Plan</a>
+    {% endif %}
+
+    <a href="/logout" class="btn-logout">Logout</a>
+    {% endblock menu %}
+</body>
+</html>

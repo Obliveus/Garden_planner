@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Edit Vegetable</title>
+</head>
+<body>
+    <header>
+        <nav class="container flex space-between">
+            <h1> Logged in as {{users.first_name}}!</h1>
+            <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
+        </nav>
+        <div> {% with messages = get_flashed_messages(category_filter=['vegetable']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                    </div>
+            {% endif %}    
+        {% endwith %} </div> 
+    </header>
+    <main >
+        <form action="/update/" method="post" class="flex column align-flex-start align-self-start bk-opacity">
+            <div class="column">
+                <label for="vegetable"> Vegetable: </label>
+                <input type="text" name="vegetable">
+                <label for="zone">Grid zone: <label>
+                <input type="text" name="zone">
+                <label for="planting_date">Planting Date: </label>
+                <input type="date" name="planting_date">
+                <label for="harvest_date">Harvest Date: </label>
+                <input type="date" name="harvest_date">
+                <button class="btn-primary btn-m-p">Add Vegetable</button> 
+                
+            </div>
+                <input type="hidden" name="users_id" value={{users.id}}>
+                <input type="hidden" name="vegetables_id" value={{vegetables_id}}>
+        </form>
+
+
+    </main>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+</body>
+</html>

@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="container flex space-between">
+        <nav class="container flex justify-flex-end">
             <h1> This is the add Veggies page {{users.first_name}}!</h1>
             <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
         </nav>
@@ -25,6 +25,8 @@
         {% endwith %} </div> 
     </header>
     <main>
+        <img class="backgroundImg" src="/static/img/gb-poly.jpeg" alt="background image">
+        <div class="z-index-1">
         <form action="/createVeggie" method="post" class="flex inline">
             <div class="column">
                 <label for="vegetable"> Vegetable: </label>
@@ -38,7 +40,7 @@
             </div>
                 <input type="hidden" name="users_id" value={{users.id}}>
         </form>
-
+        </div>
     </main>
     <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>
 </body>

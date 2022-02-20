@@ -28,3 +28,24 @@ const file = document.querySelector('#file');
     const fileNameAndSize = `${fileName} - ${fileSize}KB`;
     document.querySelector('.file-name').textContent = fileNameAndSize;
     });
+
+
+    // background video playing
+
+// Get the video
+var video = document.getElementById("myVideo");
+video.playbackRate = 0.3;
+// Get the button
+var btn = document.getElementById("myBtn");
+
+// Pause and play the video, and change the button text
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+

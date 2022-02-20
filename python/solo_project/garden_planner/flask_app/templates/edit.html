@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="container flex space-between">
+        <nav class="container flex justify-flex-end">
             <h1> Logged in as {{users.first_name}}!</h1>
             <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
         </nav>
@@ -24,7 +24,9 @@
             {% endif %}    
         {% endwith %} </div> 
     </header>
-    <main >
+    <main>
+        <img class="backgroundImg" src="/static/img/gb-poly.jpeg" alt="background image">
+        <div class="z-index-1">
         <form action="/update/" method="post" class="flex column align-flex-start align-self-start bk-opacity">
             <div class="column">
                 <label for="vegetable"> Vegetable: </label>
@@ -41,8 +43,13 @@
                 <input type="hidden" name="users_id" value={{users.id}}>
                 <input type="hidden" name="vegetables_id" value={{vegetables_id}}>
         </form>
+        <div class="body">
+        <div>
 
-
+            
+            
+        </div>
+        </div>
     </main>
     <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>
 </body>

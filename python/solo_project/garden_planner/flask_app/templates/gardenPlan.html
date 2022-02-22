@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Garden Plan</title>
 </head>
@@ -26,30 +27,42 @@
 
         </header>
         <main>
-            <div class="containerGp">
+            <img class="backgroundImg" src="/static/img/annie.jpg" alt="background image">
+            <div class="flex">
+            <div class="containerGp z-index-1 leftSide">
                 <div class="file-input">
-                    <input type="file" id="file" class="file">
-                    <label for="file">Browse file</label>
+                    <form action="/addGardenPlan" method="post">
+                        <input accept="image/*" type="file" id="file" class="file" name="garden_plan" onchange="loadFile(event)">
+                        <label for="file">Browse Files</label>
+                        <button class="noselect purple btnAdd">Upload</button>
+                        <input type="hidden" name="picture" value="">
+                        <input type="hidden" name="name" value="garden_plan">
+                    </form>
+                    
                 </div>
-                <form action="#">
-                    <input type="hidden" id="myFile" value="1234">
-                    <input type="text" placeholder="Selected File">
-                    <button class="btn-primary m-p" type="submit" value="Submit">Upload</button>
-                </form>
-                
-                <div id="gradenLayout">
-                    <div class="gardenImg">
-                        <img src="/static/img/backyard.png" alt="wheat" >
-                    </div>
+                <div class="containerGp z-index-1">
+                    <img id="output" class="gardenImg"/>
+                    <img src="/static/img/garden-layout.png">
                 </div>
             </div>
-            <video autoplay muted loop id="myVideo">
-                <source src="/static/img/Wheat.mp4" type="video/mp4">
-            </video>
-            <div class="content">
-                <button id="myBtn" onclick="myFunction()">Pause</button>
+            <!-- veggie table with zones -->
+            <div class="containerGp z-index-1 rightSide">
+                <table class="table table-bordered table-hover table-striped table-success border-secondary thead-dark">
+                        
+                    {% for vegetable in userVegetables.vegetablesList %}
+                        <tr scope="column">
+                            <th> Grid Zone {{vegetable.zone}}</th>
+                        </tr>
+                        <tr scope="column">
+                            <td>{{vegetable.vegetable}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+
+
             </div>
-            
+            </div>
         </main>
         <footer>
             <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}">

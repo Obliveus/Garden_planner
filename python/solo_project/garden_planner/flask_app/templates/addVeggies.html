@@ -10,7 +10,6 @@
 <body>
     <header>
         <nav class="container flex justify-flex-end">
-            <h1> This is the add Veggies page {{users.first_name}}!</h1>
             <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
         </nav>
         <div> {% with messages = get_flashed_messages(category_filter=['____']) %}
@@ -25,21 +24,29 @@
         {% endwith %} </div> 
     </header>
     <main>
-        <img class="backgroundImg" src="/static/img/gb-poly.jpeg" alt="background image">
-        <div class="z-index-1">
-        <form action="/createVeggie" method="post" class="flex inline">
-            <div class="column">
-                <label for="vegetable"> Vegetable: </label>
-                <input type="text" name="vegetable">
-                <label for="zone">Grid zone: <label>
-                <input type="text" name="zone">
-                <label for="planting_date">planting_date: </label>
-                <input type="date" name="planting_date">
-                <button class="btn-primary btn-m-p">Add Vegetable</button> 
-                
-            </div>
+        <img class="backgroundImg" src="/static/img/cesar.jpg" alt="background image">
+        <div class="flex z-index-1 height">
+            <form action="/createVeggie" method="post" class="veggieForm bk-opacity">
+                <div class="column">
+                    <h1>Add Some Veggies {{users.first_name}}!</h1><br>
+                    <label for="vegetable"> Vegetable: </label>
+                        <input type="text" name="vegetable">
+                    <label for="planting_date">Planting Date: </label>
+                        <input type="date" name="planting_date">
+                    <label for="harvest_date">Harvest Date: </label>
+                        <input type="date" name="harvest_date">
+                    <label for="zone">Grid Zone: </label>
+                        <select name="zone" id="zone">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    <button class="noselect purple btnAdd">Add Veggie</button>     
+                </div>
                 <input type="hidden" name="users_id" value={{users.id}}>
-        </form>
+            </form>
         </div>
     </main>
     <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>

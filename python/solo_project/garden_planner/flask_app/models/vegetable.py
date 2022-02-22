@@ -68,7 +68,7 @@ class Vegetable:
 # Updates the vegetable
     @classmethod
     def update(cls, data):
-        query = 'UPDATE vegetables SET vegetable=%(vegetable)s, zone=%(zone)s, planting_date=%(planting_date)s, harvest_date=%(harvest_date)s WHERE vegetables.id=%(id)s;' 
+        query = 'UPDATE vegetables SET vegetable=%(vegetable)s, zone=%(zone)s, planting_date=%(planting_date)s, harvest_date=%(harvest_date)s WHERE vegetables.id=%(id)s;'
         return connectToMySQL(cls.db).query_db(query, data)
 
         

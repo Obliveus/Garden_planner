@@ -3,6 +3,7 @@ from flask import render_template, session, redirect, request, flash
 from flask_bcrypt import Bcrypt
 from flask_app.models import user
 from flask_app.models import vegetable
+from flask_app.models import picture
 
 bcrypt = Bcrypt(app)
 
@@ -42,13 +43,13 @@ def create():
 
 @app.route('/edit/<int:vegetables_id>')
 def edit(vegetables_id):
-    vegetable_id = {
+    vegetables_id = {
         'id': vegetables_id
     }
     data = {
         "id": session['user_id']
     }
-    oneVegetable = vegetable.Vegetable.oneVegetable(vegetable_id)
+    oneVegetable = vegetable.Vegetable.oneVegetable(vegetables_id)
     users=user.User.get_one(data)
     return render_template("edit.html", users=users, oneVegetable=oneVegetable)
     

@@ -4,6 +4,7 @@ import re
 from flask_bcrypt import Bcrypt
 from flask_app.models.user import User
 from flask_app.models.vegetable import Vegetable
+from flask_app.models.picture import Picture
 
 bcrypt = Bcrypt(app)
 

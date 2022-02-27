@@ -237,6 +237,13 @@ label {
     z-index:1;
 }
 
+.containerGp1 {
+    width: 50%;
+    height: auto;
+    position:relative;
+    padding: 5px;
+    z-index:1;
+}
 
 /* Buttons */
 .body {
@@ -310,10 +317,11 @@ button:focus {
 
 .leftSide {
     width: 75%;
-
+    position: relative;
 }
 
 .rightSide {
+    position: relative;
     width: 25%;
     margin-top: 5%;
     background-color: rgba(255, 255, 255, 0.437);
@@ -322,7 +330,6 @@ button:focus {
 }
 
 /* Add Veggies */
-
 .btnAdd {
     padding: 5px;
     width: 100px;
@@ -332,7 +339,6 @@ button:focus {
     width: 500px;
     height: 400px;
 }
-
 
 .height {
     width: 100%;

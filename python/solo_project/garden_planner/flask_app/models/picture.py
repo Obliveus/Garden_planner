@@ -1,5 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask import flash
+from flask import flash 
+
 
 class Picture:
     db = 'vegetables'

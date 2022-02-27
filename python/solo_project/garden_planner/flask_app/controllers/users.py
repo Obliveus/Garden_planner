@@ -64,9 +64,10 @@ def gardenPlan():
     data = {
         "id": session['user_id']
     }
+    userPic = Picture.get_pictures_by_user(data)
     users = User.get_one(data)
     usersVegetables = User.userVegetables(data)
-    return render_template("gardenPlan.html", users=users, userVegetables=usersVegetables)
+    return render_template("gardenPlan.html", users=users, userVegetables=usersVegetables, userPic=userPic)
 
 @app.route('/logout')
 def logout():

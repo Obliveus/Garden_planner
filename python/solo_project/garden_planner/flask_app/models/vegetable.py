@@ -29,6 +29,9 @@ class Vegetable:
         if len(vegetable['harvest_date']) < 2:
             isvalid = False
             flash("The vegetable harvest date is missing.","vegetable")   
+        if (vegetable['harvest_date']) < (vegetable['planting_date']):
+            isvalid = False
+            flash("The harvest date must be after planting date","vegetable")       
         return isvalid
 
 # saves the new vegetable

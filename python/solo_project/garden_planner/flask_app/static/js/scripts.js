@@ -17,7 +17,6 @@ function confirmPw() {
 
 
     //upload file garden layout img
-
 const file = document.querySelector('#file');
     file.addEventListener('change', (e) => {
     // Get the selected file
@@ -31,11 +30,21 @@ const file = document.querySelector('#file');
     document.querySelector('.file-name').textContent = fileNameAndSize;
     });
 
-
+        
 var loadFile = function(event) {
     var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
+    output.value = URL.createObjectURL(event.target.files[0]);
     output.onload = function() {
-      URL.revokeObjectURL(output.src) // free memory
+      URL.revokeObjectURL(output.value) // free memory
   }
 };
+
+
+var input = document.getElementById( 'file' );
+var infoArea = document.getElementById( 'selectFile' );
+input.addEventListener( 'change', showFileName );
+function showFileName( event ) {
+  var input = event.srcElement;
+  var fileName = input.files[0].name;
+  infoArea.value = fileName;
+}

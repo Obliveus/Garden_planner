@@ -13,40 +13,30 @@
             <nav class="containerGp flex justify-flex-end">
                 <div>{% block menu %} {% include 'menu.html' %} {% endblock menu %}</div>
             </nav>
-            <div> {% with messages = get_flashed_messages(category_filter=['____']) %}
-                {% if messages %}
-                <div class="alert alert-danger" role="alert">
-                    <strong>Flash AHHHHHHH!!!!</strong>
-                        {% for message in messages %}
-                            <p>{{message}}</p>
-                        {% endfor %}
-                </div>
-                {% endif %}    
-            {% endwith %} </div> 
-            
-
         </header>
         <main>
             <img class="backgroundImg" src="/static/img/annie.jpg" alt="background image">
             <div class="flex">
-            <div class="containerGp z-index-1 leftSide">
+            <div class="containerGp leftSide">
                 <div class="file-input">
                     <form action="/addGardenPlan" method="post">
-                        <input accept="image/*" type="file" id="file" class="file" name="garden_plan" onchange="loadFile(event)">
-                        <label for="file">Browse Files</label>
-                        <button class="noselect purple btnAdd">Upload</button>
-                        <input type="hidden" name="picture" value="">
+                        <input accept="image/*" type="file" id="file" class="file" multiple required onchange="loadFile(event)">
+                        <label class="noselect purple btnAdd" for="file">Browse Files</label>
+                        <button class="noselect green btnAdd">Upload</button>
+                        <input id="selectFile" type="hidden" name="picture">
+                        <input type="hidden" name="garden_plan" value="Y">
                         <input type="hidden" name="name" value="garden_plan">
+                        <input type="hidden" name="users_id" value="{{users.id}}">
                     </form>
                     
+
                 </div>
-                <div class="containerGp z-index-1">
-                    <img id="output" class="gardenImg"/>
-                    <img src="/static/img/garden-layout.png">
+                <div class="containerGp1 leftSide">
+                    <img id="output" class="gardenImg" src="/static/img/{{userPic.picture}}"/>
                 </div>
             </div>
             <!-- veggie table with zones -->
-            <div class="containerGp z-index-1 rightSide">
+            <div class="containerGp rightSide">
                 <table class="table table-bordered table-hover table-striped table-success border-secondary thead-dark">
                         
                     {% for vegetable in userVegetables.vegetablesList %}
